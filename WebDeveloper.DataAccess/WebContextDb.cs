@@ -23,6 +23,7 @@ namespace WebDeveloper.DataAccess
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
 
+        
 
 
     }
