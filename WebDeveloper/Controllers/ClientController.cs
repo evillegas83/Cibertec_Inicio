@@ -40,14 +40,9 @@ namespace WebDeveloper.Controllers
             var obj = _client.GetClientById(id);
 
             if (obj == null)
-            {
-                return HttpNotFound();
-            }
-            else
-            {
-                return View(obj);
-            }
-            
+                RedirectToAction("Index");
+            return View(obj);
+
         }
 
         [HttpPost]
@@ -67,22 +62,19 @@ namespace WebDeveloper.Controllers
 
             var obj = _client.GetClientById(id);
 
-            if(obj == null) 
-            {
-                return HttpNotFound();
-            }
-            else
-            {
-                return View(obj);
-            }
+            if(obj == null)
+                RedirectToAction("Index");
+            return View(obj);
+            
             
         }
 
         [HttpPost]
         public ActionResult Delete(Client client)
         {
-            _client.Delete(client);
-            return RedirectToAction("Index");
+            if(_client.Delete(client)>0)
+                return RedirectToAction("Index");
+            return View(client);
 
         }
 

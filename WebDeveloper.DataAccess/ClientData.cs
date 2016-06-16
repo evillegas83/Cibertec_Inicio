@@ -12,6 +12,7 @@ namespace WebDeveloper.DataAccess
             using (var dbContext = new WebContextDb())
             {
                 return  dbContext.Clients.FirstOrDefault(s => s.ID == id);
+                //return dbContext.Clients.Find(id);
             }
             
         }       
