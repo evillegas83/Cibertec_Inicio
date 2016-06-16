@@ -7,15 +7,9 @@ namespace WebDeveloper.DataAccess
 {
     public class ClientData : BaseDataAccess<Client>
     {
-         
-
         public Client GetClientById(int id)
         {
-            using (var dbContext = new WebContextDb())
-            {
-                return GetList().Where(s => s.ID == id).FirstOrDefault();
-            }
-            
+            return GetList().Where(s => s.ID == id).FirstOrDefault();
         }       
     }
 }
