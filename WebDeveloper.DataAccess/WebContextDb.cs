@@ -18,6 +18,8 @@ namespace WebDeveloper.DataAccess
 
         public DbSet<Client> Clients { get; set; }
 
+        public DbSet<Employee> Employees { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
