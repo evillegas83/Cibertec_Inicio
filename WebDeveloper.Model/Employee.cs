@@ -23,13 +23,13 @@ namespace WebDeveloper.Model
         [Required(ErrorMessage = "Birth Date is required")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public DateTime BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
 
         [Display(Name = "Hire Date")]
         [Required(ErrorMessage = "Hire Date is required")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public DateTime HireDate { get; set; }
+        public DateTime? HireDate { get; set; }
 
     }
 }
