@@ -17,8 +17,16 @@ namespace WebDeveloper.DataAccess
                 new Product {Id=2, Description = "Pilsen", Price = 0.0 , CreateDate = null},
                 new Product {Id=3, Description = "Cuzqueña", Price = 5.0 , CreateDate = DateTime.Now}
             };
+        }
 
-            
+        public Product GetProductById(int id)
+        {
+            using (var dbContext = new WebContextDb())
+            {
+                return dbContext.Products.FirstOrDefault(s => s.Id == id);
+                //return dbContext.Clients.Find(id);
+            }
+
         }
     }
 }

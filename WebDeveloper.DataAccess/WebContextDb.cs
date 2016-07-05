@@ -20,7 +20,7 @@ namespace WebDeveloper.DataAccess
 
         public DbSet<Employee> Employees { get; set; }
 
-        //public DbSet<Employee> Products { get; set; }
+        public DbSet<Product> Products { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

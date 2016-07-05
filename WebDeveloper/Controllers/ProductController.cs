@@ -8,36 +8,32 @@ using WebDeveloper.Model;
 
 namespace WebDeveloper.Controllers
 {
-    public class ClientController : Controller
+    public class ProductController : Controller
     {
-        //private ClientData _client = new ClientData();
-        // GET: Client
-        //private IDataAccess<Client> _client;
+        private ProductData _product;
 
-        private ClientData _client;
-
-        public ClientController(ClientData client)
+        public ProductController(ProductData product)
         {
-            _client = client;
+            _product = product;
         }
 
         public ActionResult Index()
         {
-            ViewBag.Title = Resources.Resource.Client_Title;
-            return View(_client.GetList());
+           ViewBag.Title = Resources.Resource.Product_Title;
+            return View(_product.GetList());
         }
 
         public ActionResult Create()
         {
-            return View(new Client());
+            return View(new Product());
         }
 
         [HttpPost]
-        public ActionResult Create(Client client)
+        public ActionResult Create(Product product)
         {
             if (ModelState.IsValid)
             {
-                _client.Add(client);
+                _product.Add(product);
                 return RedirectToAction("Index");
             }
             return View();
@@ -45,7 +41,7 @@ namespace WebDeveloper.Controllers
 
         public ActionResult Edit(int id = 0)
         {
-            var obj = _client.GetClientById(id);
+            var obj = _product. GetProductById(id);
 
             if (obj == null)
                 RedirectToAction("Index");
@@ -54,11 +50,11 @@ namespace WebDeveloper.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(Client client)
+        public ActionResult Edit(Product product)
         {
             if (ModelState.IsValid)
             {
-                _client.Update(client);
+                _product.Update(product);
                 return RedirectToAction("Index");
             }
             return View();
@@ -68,24 +64,23 @@ namespace WebDeveloper.Controllers
         public ActionResult Delete(int id = 0)
         {
 
-            var obj = _client.GetClientById(id);
+            var obj = _product.GetProductById(id);
 
-            if(obj == null)
+            if (obj == null)
                 RedirectToAction("Index");
             return View(obj);
-            
-            
+
+
         }
 
         [HttpPost]
-        public ActionResult Delete(Client client)
+        public ActionResult Delete(Product product)
         {
-            if(_client.Delete(client)>0)
+            if (_product.Delete(product) > 0)
                 return RedirectToAction("Index");
-            return View(client);
+            return View(product);
 
         }
-
 
     }
 }

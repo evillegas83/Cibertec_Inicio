@@ -10,8 +10,16 @@ namespace WebDeveloper.Controllers
 {
     public class EmployeeController : Controller
     {
-        EmployeeData _employee = new EmployeeData();
+        //EmployeeData _employee = new EmployeeData();
         // GET: Employee
+
+        EmployeeData _employee;
+
+        public EmployeeController(EmployeeData employee)
+        {
+            _employee = employee;
+        }
+
         public ActionResult Index()
         {
             return View(_employee.GetList());
