@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace WebDeveloper.DataAccess
 {
@@ -10,9 +6,7 @@ namespace WebDeveloper.DataAccess
     {
         List<T> GetList();
         int Add(T entity);
-
         int Delete(T entity);
-
         int Update(T entity);
     }
 }
